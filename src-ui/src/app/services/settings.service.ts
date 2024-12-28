@@ -53,6 +53,12 @@ const LANGUAGE_OPTIONS = [
     dateInputFormat: 'mm/dd/yyyy',
   },
   {
+    code: 'fa-ir',
+    name: $localize`Farsi (IR)`,
+    englishName: 'Farsi (IR)',
+    dateInputFormat: 'yyyy/mm/dd',
+  },
+  {
     code: 'af-za',
     name: $localize`Afrikaans`,
     englishName: 'Afrikaans',

@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common'
 import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core'
 import { SETTINGS_KEYS } from '../data/ui-settings'
 import { SettingsService } from '../services/settings.service'
+import * as jalaali from 'jalaali-js';
 
 const FORMAT_TO_ISO_FORMAT = {
   longDate: 'y-MM-dd',
@@ -80,6 +81,13 @@ export class CustomDatePipe implements PipeTransform {
         }
       }
     }
+    if (l === 'fa' || l === 'fa-IR' || l === 'fa-ir') {
+      // Convert Gregorian date to Shamsi date
+      const date = new Date(value);
+      const shamsiDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
+      const formattedDate = `${shamsiDate.jy}-${this.pad(shamsiDate.jm)}-${this.pad(shamsiDate.jd)}`;
+      return this.datePipe.transform(formattedDate, FORMAT_TO_ISO_FORMAT[f], timezone);
+    }
     if (l == 'iso-8601') {
       return this.datePipe.transform(value, FORMAT_TO_ISO_FORMAT[f], timezone)
     } else {
@@ -90,5 +98,9 @@ export class CustomDatePipe implements PipeTransform {
         l
       )
     }
+  }
+
+  private pad(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 }

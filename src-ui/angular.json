@@ -29,6 +29,7 @@
           "es-ES": "src/locale/messages.es_ES.xlf",
           "fi-FI": "src/locale/messages.fi_FI.xlf",
           "fr-FR": "src/locale/messages.fr_FR.xlf",
+          "fa-IR": "src/locale/messages.fa.xlf",
           "hu-HU": "src/locale/messages.hu_HU.xlf",
           "it-IT": "src/locale/messages.it_IT.xlf",
           "ja-JP": "src/locale/messages.ja_JP.xlf",
@@ -47,7 +48,7 @@
           "sv-SE": "src/locale/messages.sv_SE.xlf",
           "tr-TR": "src/locale/messages.tr_TR.xlf",
           "uk-UA": "src/locale/messages.uk_UA.xlf",
-          "zh-CN": "src/locale/messages.zh_CN.xlf"
+          "zh-CN": "src/locale/messages.zh_CN.xlf",
         }
       },
       "architect": {
@@ -76,7 +77,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/rtl-styles.scss"
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -155,7 +157,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/rtl-styles.scss"
             ],
             "scripts": []
           }

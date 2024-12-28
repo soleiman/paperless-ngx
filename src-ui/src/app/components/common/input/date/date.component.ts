@@ -14,6 +14,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap'
 import { SettingsService } from 'src/app/services/settings.service'
 import { AbstractInputComponent } from '../abstract-input'
+import { CustomConfig } from '@ah99/ngx-date-picker'
 
 @Component({
   providers: [
@@ -48,6 +49,14 @@ export class DateComponent
   @Output()
   filterDocuments = new EventEmitter<NgbDateStruct[]>()
 
+  locale: string = document.documentElement.lang;
+
+  customConfig: CustomConfig = {
+    calendar: "jalali",
+    format: "DD/MM/YYYY",
+    displayFooter: false
+  }
+
   getSuggestions() {
     return this.suggestions == null
       ? []
@@ -70,6 +79,8 @@ export class DateComponent
   ngOnInit(): void {
     super.ngOnInit()
     this.placeholder = this.settings.getLocalizedDateInputFormat()
+
+    console.log("LOCALE:", this.locale);
   }
 
   placeholder: string

@@ -692,7 +692,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # Internationalization                                                        #
 ###############################################################################
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fa-ir"
 
 LANGUAGES = [
     ("en-us", _("English (US)")),  # needs to be first to act as fallback language
@@ -709,6 +709,7 @@ LANGUAGES = [
     ("es-es", _("Spanish")),
     ("fi-fi", _("Finnish")),
     ("fr-fr", _("French")),
+    ("fa-ir", _("Farsi")),
     ("hu-hu", _("Hungarian")),
     ("it-it", _("Italian")),
     ("ja-jp", _("Japanese")),
@@ -982,7 +983,7 @@ OCR_PAGES = __get_optional_int("PAPERLESS_OCR_PAGES")
 
 # The default language that tesseract will attempt to use when parsing
 # documents.  It should be a 3-letter language code consistent with ISO 639.
-OCR_LANGUAGE = os.getenv("PAPERLESS_OCR_LANGUAGE", "eng")
+OCR_LANGUAGE = os.getenv("PAPERLESS_OCR_LANGUAGE", "fas+eng")
 
 # OCRmyPDF --output-type options are available.
 OCR_OUTPUT_TYPE = os.getenv("PAPERLESS_OCR_OUTPUT_TYPE", "pdfa")

@@ -1,0 +1,139 @@
+@import "styles";
+
+//[dir="rtl"] {
+  // Override styles for RTL
+  body {
+    direction: rtl;
+    text-align: right;
+  }
+
+  * {
+    direction: rtl;
+    text-align: right;
+  }
+  .btn-group,
+  .input-group,
+  .pagination {
+    flex-direction: row-reverse;
+  }
+
+  .btn-close {
+    position: absolute;
+    left: 1rem; /* فاصله از سمت چپ */
+    right: auto;
+  }
+
+  .dropdown-menu {
+    left: 0 !important; /* انتقال به سمت چپ */
+    right: auto !important;
+    text-align: right;
+  }
+
+  .dropdown-toggle::after {
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 0;
+  }
+
+  .dropdown-item {
+    text-align: right;
+  }
+
+  .dropdown-item .icon {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+
+  .sidebar {
+    right: 0;
+    left: auto;
+  }
+
+  .sidebar-slim-toggler {
+    right: calc(var(--pngx-sidebar-width) - 12px);
+    left: auto !important;
+  }
+
+  .nav-item {
+    .close {
+      top: 0;
+      left: .4rem !important;
+      right: auto !important;
+    }
+  }
+
+  .col-slim {
+    padding-right: calc(50px + 1.5rem) !important;
+    padding-left: auto !important;
+  }
+
+  .ms-sm-auto {
+    margin-inline-start: auto !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .nav {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+
+  .dropdown-toggle:after {
+    margin-inline-start: .255em;
+    margin-inline-end: 0;
+  }
+
+  .ms-auto {
+    margin-inline-start: auto !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .ms-1 {
+    margin-inline-start: .25rem !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .ms-2 {
+    margin-inline-start: .5rem !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .ms-3 {
+    margin-inline-start: 1rem !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .me-1 {
+    margin-inline-start: 0 !important;
+    margin-inline-end: .25rem !important;
+  }
+
+  .me-2 {
+    margin-inline-start: 0 !important;
+    margin-inline-end: .5rem !important;
+  }
+
+  .me-3 {
+    margin-inline-start: 0 !important;
+    margin-inline-end: 1rem !important;
+  }
+
+  .ps-1 {
+    padding-inline-start: .25rem !important;
+    padding-inline-end: 0 !important;
+  }
+
+  .ps-2 {
+    padding-inline-start: .5rem !important;
+    padding-inline-end: 0 !important;
+  }
+
+  .pe-1 {
+    padding-inline-start: 0 !important;
+    padding-inline-end: .25rem !important;
+  }
+
+  .pe-2 {
+    padding-inline-start: 0 !important;
+    padding-inline-end: .5rem !important;
+  }
+//}

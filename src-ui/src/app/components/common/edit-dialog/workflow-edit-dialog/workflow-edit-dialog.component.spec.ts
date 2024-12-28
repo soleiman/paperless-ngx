@@ -200,8 +200,7 @@ describe('WorkflowEditDialogComponent', () => {
   })
 
   it('should return source options, type options, type name, schedule date field options', () => {
-    jest.spyOn(settingsService, 'get').mockReturnValue(true)
-    component.ngOnInit()
+    // coverage
     expect(component.sourceOptions).toEqual(DOCUMENT_SOURCE_OPTIONS)
     expect(component.triggerTypeOptions).toEqual(WORKFLOW_TYPE_OPTIONS)
     expect(
@@ -216,13 +215,6 @@ describe('WorkflowEditDialogComponent', () => {
     expect(component.getActionTypeOptionName(null)).toEqual('')
     expect(component.scheduleDateFieldOptions).toEqual(
       SCHEDULE_DATE_FIELD_OPTIONS
-    )
-
-    // Email disabled
-    jest.spyOn(settingsService, 'get').mockReturnValue(false)
-    component.ngOnInit()
-    expect(component.actionTypeOptions).toEqual(
-      WORKFLOW_ACTION_OPTIONS.filter((a) => a.id !== WorkflowActionType.Email)
     )
   })
 

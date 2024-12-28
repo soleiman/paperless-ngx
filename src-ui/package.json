@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test --no-watch --coverage",
     "lint": "ng lint",
@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@ah99/ngx-date-picker": "^1.0.2-beta",
     "@angular/cdk": "^18.2.11",
     "@angular/common": "~18.2.10",
     "@angular/compiler": "~18.2.10",
@@ -26,6 +27,7 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "file-saver": "^2.0.5",
+    "jalaali-js": "^1.2.7",
     "mime-names": "^1.0.0",
     "ng2-pdf-viewer": "^10.4.0",
     "ngx-bootstrap-icons": "^1.9.3",

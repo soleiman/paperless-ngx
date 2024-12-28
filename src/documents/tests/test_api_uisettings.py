@@ -23,7 +23,6 @@ class TestApiUiSettings(DirectoriesMixin, APITestCase):
     def test_api_get_ui_settings(self):
         response = self.client.get(self.ENDPOINT, format="json")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.maxDiff = None
         self.assertDictEqual(
             response.data["user"],
             {
@@ -46,7 +45,6 @@ class TestApiUiSettings(DirectoriesMixin, APITestCase):
                 "update_checking": {
                     "backend_setting": "default",
                 },
-                "email_enabled": False,
             },
         )
 
