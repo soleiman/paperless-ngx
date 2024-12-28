@@ -100,3 +100,4 @@ scripts/nuke
 
 # celery schedule file
 celerybeat-schedule*
+/.vs
