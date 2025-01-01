@@ -101,3 +101,10 @@ scripts/nuke
 # celery schedule file
 celerybeat-schedule*
 /.vs
+.devcontainer/data/db.sqlite3
+.devcontainer/data/index/_MAIN_0.toc
+.devcontainer/data/log/.__celery.lock
+.devcontainer/data/log/.__paperless.lock
+.devcontainer/media/media.lock
+.devcontainer/redisdata/dump.rdb
+.devcontainer/redisdata/temp-1.rdb

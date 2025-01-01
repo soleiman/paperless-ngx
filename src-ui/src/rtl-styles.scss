@@ -1,6 +1,6 @@
 @import "styles";
 
-//[dir="rtl"] {
+[dir="rtl"] {
   // Override styles for RTL
   body {
     direction: rtl;
@@ -136,4 +136,4 @@
     padding-inline-start: 0 !important;
     padding-inline-end: .5rem !important;
   }
-//}
+}

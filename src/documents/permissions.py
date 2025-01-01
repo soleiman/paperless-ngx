@@ -31,7 +31,7 @@ class PaperlessObjectPermissions(DjangoObjectPermissions):
 
     def has_object_permission(self, request, view, obj):
         if hasattr(obj, "owner") and obj.owner is not None:
-            if request.user == obj.owner:
+            if request.user == obj.owner or obj.owner.groups.filter(id__in=request.user.groups.values_list('id', flat=True)).exists():
                 return True
             else:
                 return super().has_object_permission(request, view, obj)
@@ -137,7 +137,7 @@ def get_objects_for_user_owner_aware(user, perms, Model) -> QuerySet:
 
 def has_perms_owner_aware(user, perms, obj):
     checker = ObjectPermissionChecker(user)
-    return obj.owner is None or obj.owner == user or checker.has_perm(perms, obj)
+    return obj.owner is None or obj.owner == user or obj.owner.groups.filter(id__in=user.groups.values_list('id', flat=True)).exists() or checker.has_perm(perms, obj)
 
 
 class PaperlessNotePermissions(BasePermission):

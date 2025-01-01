@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common'
 import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core'
 import { SETTINGS_KEYS } from '../data/ui-settings'
 import { SettingsService } from '../services/settings.service'
-import * as jalaali from 'jalaali-js';
+import * as moment from 'jalali-moment'
 
 const FORMAT_TO_ISO_FORMAT = {
   longDate: 'y-MM-dd',
@@ -81,12 +81,10 @@ export class CustomDatePipe implements PipeTransform {
         }
       }
     }
+
     if (l === 'fa' || l === 'fa-IR' || l === 'fa-ir') {
       // Convert Gregorian date to Shamsi date
-      const date = new Date(value);
-      const shamsiDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
-      const formattedDate = `${shamsiDate.jy}-${this.pad(shamsiDate.jm)}-${this.pad(shamsiDate.jd)}`;
-      return this.datePipe.transform(formattedDate, FORMAT_TO_ISO_FORMAT[f], timezone);
+      return moment(value).locale('fa').format(this.jalaliMapFormat(f));
     }
     if (l == 'iso-8601') {
       return this.datePipe.transform(value, FORMAT_TO_ISO_FORMAT[f], timezone)
@@ -100,7 +98,11 @@ export class CustomDatePipe implements PipeTransform {
     }
   }
 
-  private pad(value: number): string {
-    return value < 10 ? `0${value}` : `${value}`;
+  private jalaliMapFormat(format: string): string {
+    return format
+      .replace(/y/g, 'jYYYY')
+      .replace(/Y/g, 'YYYY')
+      .replace(/M/g, 'jMM')
+      .replace(/d/g, 'jDD')
   }
 }

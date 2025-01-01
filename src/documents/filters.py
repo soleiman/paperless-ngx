@@ -745,7 +745,8 @@ class ObjectOwnedOrGrantedPermissionsFilter(ObjectPermissionsFilter):
         objects_with_perms = super().filter_queryset(request, queryset, view)
         objects_owned = queryset.filter(owner=request.user)
         objects_unowned = queryset.filter(owner__isnull=True)
-        return objects_with_perms | objects_owned | objects_unowned
+        objects_in_same_group = queryset.filter(owner__groups__in=request.user.groups.all())
+        return objects_with_perms | objects_owned | objects_unowned | objects_in_same_group
 
 
 class ObjectOwnedPermissionsFilter(ObjectPermissionsFilter):

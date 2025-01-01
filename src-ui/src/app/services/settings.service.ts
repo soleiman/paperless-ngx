@@ -56,7 +56,7 @@ const LANGUAGE_OPTIONS = [
     code: 'fa-ir',
     name: $localize`Farsi (IR)`,
     englishName: 'Farsi (IR)',
-    dateInputFormat: 'yyyy/mm/dd',
+    dateInputFormat: 'dd/mm/yyyy',
   },
   {
     code: 'af-za',

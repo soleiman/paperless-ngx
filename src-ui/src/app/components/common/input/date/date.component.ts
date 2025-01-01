@@ -15,6 +15,7 @@ import {
 import { SettingsService } from 'src/app/services/settings.service'
 import { AbstractInputComponent } from '../abstract-input'
 import { CustomConfig } from '@ah99/ngx-date-picker'
+import { JalaliDateAdapter, JalaliDateParserFormatter } from 'src/app/utils/jalali-date.util';
 
 @Component({
   providers: [
@@ -22,6 +23,14 @@ import { CustomConfig } from '@ah99/ngx-date-picker'
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => DateComponent),
       multi: true,
+    },
+    {
+      provide: NgbDateAdapter,
+      useClass: JalaliDateAdapter,
+    },
+    {
+      provide: NgbDateParserFormatter,
+      useClass: JalaliDateParserFormatter,
     },
   ],
   selector: 'pngx-input-date',

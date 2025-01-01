@@ -384,9 +384,8 @@ import localeTr from '@angular/common/locales/tr'
 import localeUk from '@angular/common/locales/uk'
 import localeZh from '@angular/common/locales/zh'
 import localeFa from '@angular/common/locales/fa';
-import { JalaliDateAdapter } from './utils/jalali-date.adapter'
-import { JalaliDateParserFormatter } from './utils/jalali-date-parser-formatter'
 import { NgxDatePickerModule } from '@ah99/ngx-date-picker'
+import { JalaliDateAdapter, JalaliDateParserFormatter } from './utils/jalali-date.util'
 
 registerLocaleData(localeFa);
 registerLocaleData(localeAf)
@@ -573,10 +572,10 @@ function initializeApp(settings: SettingsService) {
     },
     FilterPipe,
     DocumentTitlePipe,
-    { provide: NgbDateAdapter, useClass: ISODateAdapter },
-    { provide: NgbDateParserFormatter, useClass: LocalizedDateParserFormatter },
-    // { provide: NgbDateAdapter, useClass: JalaliDateAdapter },
-    // { provide: NgbDateParserFormatter, useClass: JalaliDateParserFormatter },
+    // { provide: NgbDateAdapter, useClass: ISODateAdapter },
+    // { provide: NgbDateParserFormatter, useClass: LocalizedDateParserFormatter },
+    { provide: NgbDateAdapter, useClass: JalaliDateAdapter },
+    { provide: NgbDateParserFormatter, useClass: JalaliDateParserFormatter },
     PermissionsGuard,
     DirtyDocGuard,
     DirtySavedViewGuard,
